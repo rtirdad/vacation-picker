@@ -11,7 +11,7 @@ const countryData = {
         id:2,
         name:'Luxembourg',
         capital:'Luxembourg',
-        cost: 1200,
+        cost: 950,
         details:'Luxembourg is a small European country, surrounded by Belgium, France and Germany.It’s mostly rural, with dense Ardennes forest and nature parks in the north, rocky gorges of the Mullerthal region in the east and the Moselle river valley in the southeast.',
         img:'luxembourg.jpg'
     },
