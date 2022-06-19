@@ -5,18 +5,6 @@
         <h1>
           Pick your next vacation
         </h1>
-        <h2>
-          Add a new country
-        </h2>
-        <input type="text" v-model="newCountry"/> <button class="btn btn-dark" @click="addCountry()">toevoegen</button>
-        <h3>
-          {{newCountry}}
-        </h3>
-        <ul class="list-group">
-          <li class="list-group-item" v-for="(country, index) in newCountries" :key="index">
-            {{country}}
-          </li>
-        </ul>
         <ul class="list-group">
           <li class="list-group-item" v-for="(country,index) in countryData.countries" v-bind:key="country.id" :title="country.details"
               @click="selectCountry(index)">
@@ -31,8 +19,8 @@
         <button @click="increment()" class="btn btn-success">+</button>
         <button @click="decrement()" class="btn btn-danger">-</button>
       </div>
-      <div class="col-6">
-        <CountryDetail v-if="selectedCountry" :country="selectedCountry"/>
+      <div class="col-md-6 col-sm-12">
+        <CountryDetail @rating="onRating($event)" v-if="selectedCountry" :country="selectedCountry"/>
       </div>
     </div>
   </div>
@@ -55,10 +43,6 @@ export default {
     }
   },
   methods: {
-    addCountry(){
-      this.newCountries.push(this.newCountry);
-      this.newCountry = "";
-    },
     increment() {
       this.count++;
     },
@@ -72,6 +56,9 @@ export default {
     },
     getImgUrl(img){
       return require('../assets/countries/' + img)
+    },
+    onRating(rating){
+      this.countryData.countries[this.selectedCountryIndex].rating += rating;
     }
   },
   computed:{

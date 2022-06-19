@@ -7,7 +7,7 @@
       {{country.id}}
     </li>
     <li class="list-group-item">
-      <img :src="getImgUrl(country.img)" style="height: 18rem" class="img-fluid">
+      <img :src="getImgUrl(country.img)" style="height: 18rem" class="img-fluid" alt="">
     </li>
     <li class="list-group-item">
       {{country.name}}
@@ -21,11 +21,15 @@
     <li class="list-group-item">
       {{country.details}}
     </li>
-
     <li v-if="isExpensive" class="list-group-item">
       <p class="bg-danger">DUUR!</p>
     </li>
   </ul>
+  <span class="float-end">
+    <button @click="setRating(1)">+1</button>
+    <button @click="setRating(-1)">-1</button>
+  </span>
+  <span class="float-end" v-if="country.rating !== 0">{{country.rating}}</span>
 </template>
 
 <script>
@@ -53,8 +57,12 @@ export default {
     },
     getImgUrl(img){
       return require('../assets/countries/' + img)
+    },
+    setRating(value){
+      this.$emit('rating', value)
     }
   },
+  emits:['rating'] ,
   computed:{
     isExpensive(){
       return this.country.cost > 1000
