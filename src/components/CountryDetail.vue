@@ -40,10 +40,6 @@ export default {
   props: ['country'],
   mixins: [mixins],
   methods: {
-    addCountry(){
-      this.newCountries.push(this.newCountry);
-      this.newCountry = "";
-    },
     increment() {
       this.count++;
     },

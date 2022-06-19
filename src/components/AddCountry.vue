@@ -1,5 +1,5 @@
 <template>
-  <h2>
+  <h2 class>
     Add a new country
   </h2>
   <input type="text" v-model="newCountry"/> <button class="btn btn-dark" @click="addCountry()">Add a Country</button>
