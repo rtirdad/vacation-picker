@@ -22,7 +22,7 @@
       {{country.details}}
     </li>
     <li v-if="isExpensive" class="list-group-item">
-      <p class="bg-danger">DUUR!</p>
+      <p class="bg-danger">This trip is Expensive!</p>
     </li>
   </ul>
   <span class="float-end">
